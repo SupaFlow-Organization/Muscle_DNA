@@ -2,33 +2,33 @@ import { Feature } from '@/types';
 
 export const features: Feature[] = [
   {
-    title: 'DNA-Level Optimization',
-    description: 'Revolutionary formulations engineered to activate your genetic blueprint for peak athletic performance and muscle synthesis.',
-    icon: '🧬',
+    title: 'Precision Muscle Synthesis',
+    description: 'Scientifically formulated to trigger optimal muscle protein synthesis. Our advanced amino acid matrix delivers 25g of premium protein per serving, engineered for maximum absorption and muscle growth.',
+    icon: 'Dumbbell',
   },
   {
-    title: 'Ultra-Premium Sourcing',
-    description: 'Pharmaceutical-grade ingredients meticulously selected from elite global suppliers. No compromises, only excellence.',
-    icon: '✨',
+    title: 'Zero Compromise Quality',
+    description: 'Sourced from certified suppliers worldwide. Every ingredient undergoes rigorous testing for purity and potency. No artificial additives, no hidden fillers—only premium nutrition.',
+    icon: 'ShieldCheck',
   },
   {
-    title: 'Lightning-Fast Absorption',
-    description: 'Cutting-edge bioavailability matrix delivers nutrients directly to your muscles within minutes, not hours.',
-    icon: '⚡',
+    title: 'Instant Nutrient Delivery',
+    description: 'Advanced micronization technology ensures rapid absorption. Nutrients reach your bloodstream within 20 minutes, fueling your muscles when they need it most for peak performance.',
+    icon: 'Zap',
   },
   {
-    title: 'Lab-Certified Purity',
-    description: 'Triple-tested in independent laboratories. Every batch meets the highest standards of quality and potency.',
-    icon: '🔬',
+    title: 'Lab-Certified Excellence',
+    description: 'Third-party tested for banned substances and contaminants. Each batch is verified by independent laboratories, ensuring you receive safe, effective, competition-grade supplements.',
+    icon: 'FlaskConical',
   },
   {
-    title: 'Smart Progress Tracking',
-    description: 'AI-powered analytics transform your data into actionable insights, optimizing every aspect of your journey.',
-    icon: '📊',
+    title: 'Smart Training Insights',
+    description: 'Data-driven approach to your fitness goals. Track macros, monitor progress, and receive AI-powered recommendations to optimize your nutrition and training for faster results.',
+    icon: 'LineChart',
   },
   {
-    title: '24/7 Elite Coaching',
-    description: 'Direct access to certified sports nutritionists and performance specialists whenever you need guidance.',
-    icon: '👥',
+    title: 'Professional Coaching Access',
+    description: 'Connect with certified fitness professionals and nutritionists anytime. Get expert advice on supplementation, training programs, and meal planning customized to your specific goals.',
+    icon: 'Users',
   },
 ];

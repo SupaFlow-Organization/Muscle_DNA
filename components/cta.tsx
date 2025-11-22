@@ -6,9 +6,9 @@ import { Sparkles, Shield, Truck, Award } from 'lucide-react';
 
 export default function CTA() {
   const benefits = [
-    { icon: Truck, text: 'Free Express Shipping', subtext: 'Worldwide' },
+    { icon: Truck, text: 'Fast Express Shipping', subtext: 'Worldwide' },
     { icon: Shield, text: '100% Results', subtext: 'Guarantee' },
-    { icon: Award, text: 'Elite Coaching', subtext: 'Included' }
+    { icon: Award, text: 'Premium Quality', subtext: 'Guaranteed' }
   ];
 
   const containerVariants = {
@@ -56,7 +56,7 @@ export default function CTA() {
           {/* Floating sparkles */}
           <motion.div
             className="absolute top-10 right-10 text-gold/20"
-            animate={{ 
+            animate={{
               y: [-10, 10, -10],
               rotate: [0, 180, 360]
             }}
@@ -66,7 +66,7 @@ export default function CTA() {
           </motion.div>
           <motion.div
             className="absolute bottom-10 left-10 text-gold/20"
-            animate={{ 
+            animate={{
               y: [10, -10, 10],
               rotate: [360, 180, 0]
             }}
@@ -88,7 +88,7 @@ export default function CTA() {
             </motion.div>
 
             {/* Main Heading */}
-            <motion.h2 
+            <motion.h2
               variants={itemVariants}
               className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 md:mb-6 text-balance leading-tight"
             >
@@ -99,16 +99,16 @@ export default function CTA() {
             </motion.h2>
 
             {/* Subheading */}
-            <motion.p 
+            <motion.p
               variants={itemVariants}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-10 md:mb-14 max-w-3xl mx-auto leading-relaxed"
             >
-              Join <span className="font-bold text-gold">50,000+</span> elite athletes who've unlocked their genetic potential. 
+              Join <span className="font-bold text-gold">50,000+</span> elite athletes who've unlocked their genetic potential.
               Start your transformation journey today with science-backed supplements.
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center mb-12 md:mb-16"
             >
@@ -116,8 +116,8 @@ export default function CTA() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ButtonPremium 
-                  variant="primary" 
+                <ButtonPremium
+                  variant="primary"
                   size="large"
                   onClick={() => console.log('Shop Collection')}
                 >
@@ -133,8 +133,8 @@ export default function CTA() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ButtonPremium 
-                  variant="secondary" 
+                <ButtonPremium
+                  variant="secondary"
                   size="large"
                   onClick={() => console.log('Subscribe')}
                 >
@@ -146,7 +146,7 @@ export default function CTA() {
             </motion.div>
 
             {/* Benefits Grid */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 pt-8 md:pt-10 border-t border-gold/20"
             >
@@ -169,7 +169,7 @@ export default function CTA() {
             </motion.div>
 
             {/* Trust indicators */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground"
             >

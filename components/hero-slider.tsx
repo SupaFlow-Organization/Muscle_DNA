@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Slide {
   id: number;
@@ -22,6 +22,19 @@ export default function HeroSlider() {
   const slides: Slide[] = [
     {
       id: 1,
+      productImage: '/images/Black_product_box.jpg',
+      title: 'BIO WHEY PROTEIN',
+      subtitle: 'Chocolate Fudge',
+      certificationBadge: '/trustified-badge.png',
+      features: [
+        '25g Protein Per Serving',
+        '7g BCAA',
+        '50% BCAAs'
+      ],
+      backgroundColor: 'from-white via-gold/5 to-gold/10'
+    },
+    {
+      id: 2,
       productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.38_ef22c492-Simml0VDaeZh6FGHBsKnzf1WUIFAY8.jpg',
       title: 'BIO WHEY PROTEIN',
       subtitle: 'Chocolate Almond Crunch',
@@ -34,7 +47,7 @@ export default function HeroSlider() {
       backgroundColor: 'from-white via-gold/5 to-gold/10'
     },
     {
-      id: 2,
+      id: 3,
       productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.40_1ef9de40-y434UxyKKMwKmVS31CqVhsn3tMrMHN.jpg',
       title: 'BIO PROTEIN GAINER',
       subtitle: 'Kesar Badaam',
@@ -47,7 +60,7 @@ export default function HeroSlider() {
       backgroundColor: 'from-white via-gold/5 to-gold/10'
     },
     {
-      id: 3,
+      id: 4,
       productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
       title: 'LAUNCHER PRE-WORKOUT',
       subtitle: 'Pineapple Blast',
@@ -71,26 +84,29 @@ export default function HeroSlider() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   }, [slides.length]);
 
-  // Auto-slide every 5 seconds
+  // Auto-slide every 3 seconds (faster)
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction > 0 ? 600 : -600,
+      opacity: 0,
+      scale: 0.97
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
+      scale: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      x: direction < 0 ? 600 : -600,
+      opacity: 0,
+      scale: 0.97
     })
   };
 
@@ -112,10 +128,11 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 }
+              x: { type: "spring", stiffness: 500, damping: 40, mass: 0.7 },
+              opacity: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] },
+              scale: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }
             }}
-            className="relative md:absolute md:inset-0"
+            className="relative md:absolute md:inset-0 hero-slide"
           >
             <div className={`h-full bg-gradient-to-br ${slides[currentSlide].backgroundColor}`}>
               <div className="container-custom h-full px-4 sm:px-6 lg:px-8">
@@ -123,23 +140,24 @@ export default function HeroSlider() {
                   
                   {/* Product Image - Mobile First */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
+                    initial={{ opacity: 0, y: 15, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.05, duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     className="relative flex items-center justify-center w-full order-1 lg:order-1 flex-shrink-0"
+                    style={{ willChange: 'transform, opacity' }}
                   >
-                    <div className="relative w-full max-w-[220px] sm:max-w-[280px] md:max-w-[380px] lg:max-w-lg mx-auto">
+                    <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-md mx-auto">
                       {/* Glow effect behind product */}
                       <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-gold/5 to-transparent blur-2xl scale-110"></div>
                       
-                      {/* Product image */}
-                      <div className="relative z-10">
+                      {/* Product image with background */}
+                      <div className="relative z-10 bg-white/50 backdrop-blur-sm rounded-2xl p-3 md:p-4">
                         <Image
                           src={slides[currentSlide].productImage}
                           alt={slides[currentSlide].title}
-                          width={500}
-                          height={600}
-                          className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(212,175,55,0.25)] md:drop-shadow-[0_35px_60px_rgba(212,175,55,0.3)]"
+                          width={400}
+                          height={500}
+                          className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] md:drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]"
                           priority
                         />
                       </div>
@@ -176,16 +194,17 @@ export default function HeroSlider() {
 
                   {/* Content - Mobile First */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
+                    transition={{ delay: 0.08, duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     className="space-y-2.5 sm:space-y-3 md:space-y-5 lg:space-y-7 text-center lg:text-left order-2 lg:order-2 w-full"
+                    style={{ willChange: 'transform, opacity' }}
                   >
                     {/* Eyebrow text */}
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
+                      transition={{ delay: 0.1, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                       className="inline-flex items-center gap-1.5 md:gap-2 bg-gold/10 px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full"
                     >
                       <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-gold rounded-full animate-pulse"></span>
@@ -197,53 +216,53 @@ export default function HeroSlider() {
                     {/* Title and Subtitle */}
                     <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
                       <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
+                        transition={{ delay: 0.12, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
                         className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-[1.15]"
                       >
                         {slides[currentSlide].title}
                       </motion.h1>
                       <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
+                        transition={{ delay: 0.15, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-dark to-gold font-semibold"
                       >
                         {slides[currentSlide].subtitle}
                       </motion.p>
                       <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7 }}
+                        transition={{ delay: 0.18, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-[11px] sm:text-xs md:text-sm lg:text-base text-muted-foreground max-w-xl mx-auto lg:mx-0 pt-0.5 sm:pt-1"
                       >
                         Engineered for Champions. Scientifically crafted formulations that transform your body's potential into extraordinary performance.
                       </motion.p>
                     </div>
 
-                    {/* Features Grid */}
+                    {/* Features Grid - Always Horizontal, One Line for All Devices */}
                     <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 }}
-                      className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 md:gap-3"
+                      transition={{ delay: 0.2, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="flex flex-row gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 justify-center lg:justify-start flex-nowrap w-full"
                     >
                       {slides[currentSlide].features.map((feature, index) => (
                         <motion.div
                           key={index}
-                          initial={{ opacity: 0, scale: 0.8 }}
+                          initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.9 + index * 0.1 }}
-                          className="bg-white border border-gold/20 p-2 sm:p-2.5 md:p-3 lg:p-4 rounded-lg md:rounded-xl shadow-md hover:shadow-xl hover:border-gold/40 transition-all group"
+                          transition={{ delay: 0.22 + index * 0.03, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                          className="bg-white border border-gold/20 p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-4 rounded-lg md:rounded-xl shadow-md hover:shadow-xl hover:border-gold/40 transition-all duration-150 group flex-1 min-w-0"
                         >
-                          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
-                            <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
-                              <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3">
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 bg-gold/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+                              <svg className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                               </svg>
                             </div>
-                            <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-foreground text-left">{feature}</span>
+                            <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold text-foreground text-left truncate">{feature}</span>
                           </div>
                         </motion.div>
                       ))}
@@ -251,32 +270,38 @@ export default function HeroSlider() {
 
                     {/* CTA Buttons */}
                     <motion.div
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.2 }}
+                      transition={{ delay: 0.25, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
                       className="flex flex-col sm:flex-row gap-2 sm:gap-2.5 md:gap-3 justify-center lg:justify-start"
                     >
-                      <motion.button 
-                        className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-full font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Shop Now
-                      </motion.button>
-                      <motion.button 
-                        className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-full font-semibold text-sm md:text-base lg:text-lg transition-all"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Learn More
-                      </motion.button>
+                      <Link href={`/products/${slides[currentSlide].title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <motion.button 
+                          className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-150 w-full sm:w-auto"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        >
+                          Shop Now
+                        </motion.button>
+                      </Link>
+                      <Link href={`/products/${slides[currentSlide].title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <motion.button 
+                          className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-150 w-full sm:w-auto"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        >
+                          Learn More
+                        </motion.button>
+                      </Link>
                     </motion.div>
 
                     {/* Trust Badge */}
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ delay: 1.4 }}
+                      transition={{ delay: 0.28, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                       className="flex flex-wrap items-center gap-2 sm:gap-2.5 md:gap-4 lg:gap-5 justify-center lg:justify-start pt-2 sm:pt-2.5 md:pt-3 border-t border-gold/10"
                     >
                       <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
@@ -306,21 +331,6 @@ export default function HeroSlider() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border border-gold/20 text-foreground p-2 sm:p-3 md:p-4 rounded-full transition-all z-10 shadow-lg hover:shadow-xl hover:scale-110"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white border border-gold/20 text-foreground p-2 sm:p-3 md:p-4 rounded-full transition-all z-10 shadow-lg hover:shadow-xl hover:scale-110"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-        </button>
 
         {/* Slide Indicators - Hidden on mobile */}
         <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 gap-2 z-10">
@@ -331,7 +341,7 @@ export default function HeroSlider() {
                 setDirection(index > currentSlide ? 1 : -1);
                 setCurrentSlide(index);
               }}
-              className={`h-2 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all duration-300 ease-out ${
                 index === currentSlide 
                   ? 'w-10 bg-gold' 
                   : 'w-2 bg-gold/30 hover:bg-gold/50'

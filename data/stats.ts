@@ -18,7 +18,7 @@ export const scienceStats: Stat[] = [
     description: 'Validated by cutting-edge scientific research' 
   },
   { 
-    number: '10M+', 
+    number: '1M+', 
     label: 'Elite Athletes', 
     description: 'Trusted by champions across the globe' 
   },

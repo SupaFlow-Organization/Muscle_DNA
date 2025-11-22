@@ -7,6 +7,7 @@ export const products: Product[] = [
     category: 'Premium Whey',
     description: 'Unleash 25g of pure muscle-building power per serving. Fortified with 16g creatine and 5g BCAA for explosive gains, lightning-fast recovery, and unmatched strength.',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_ea4eb029-aUsQwJpkzTVfbIF7bOHKwPrYXpzgln.jpg',
+    price: 8499,
   },
   {
     name: 'Bio Protein Gainer',
@@ -14,6 +15,7 @@ export const products: Product[] = [
     category: 'Mass Gainer',
     description: 'The ultimate mass-building weapon. 20g premium protein and 60g complex carbs with 3g creatine fuel unstoppable muscle growth and raw power.',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.40_1ef9de40-y434UxyKKMwKmVS31CqVhsn3tMrMHN.jpg',
+    price: 4499,
   },
   {
     name: 'Launcher Pre-Workout',
@@ -21,6 +23,7 @@ export const products: Product[] = [
     category: 'Pre-Workout',
     description: 'Ignite your workout with explosive energy that lasts. Scientifically engineered to push your limits, shatter plateaus, and dominate every rep.',
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
+    price: 9499,
   },
 ];
 

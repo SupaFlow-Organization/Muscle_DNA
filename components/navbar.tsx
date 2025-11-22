@@ -84,7 +84,7 @@ export default function Navbar() {
       <nav className={`bg-white border-b border-gold/20 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'shadow-xl' : 'shadow-md'
       }`}>
-        <div className="container-custom px-6">
+        <div className="container-custom px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link href="/" className="flex items-center group">
@@ -136,7 +136,7 @@ export default function Navbar() {
               {/* Shop Now Button */}
               <Link href="/shop">
                 <motion.button 
-                  className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-full font-semibold text-sm transition-all shadow-md hover:shadow-lg"
+                  className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -146,7 +146,7 @@ export default function Navbar() {
 
               {/* Mobile Menu Button */}
               <button
-                className="lg:hidden p-2 hover:bg-gold/10 rounded-full transition-colors"
+                className="lg:hidden p-2 hover:bg-gold/10 rounded-lg transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? (
@@ -188,6 +188,20 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                
+                {/* Shop Now Button - Mobile Only */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: menuItems.length * 0.08, duration: 0.3 }}
+                  className="pt-2"
+                >
+                  <Link href="/shop">
+                    <button className="w-full bg-gold hover:bg-gold-dark text-white py-3 px-4 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg">
+                      Shop Now
+                    </button>
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}
@@ -196,3 +210,4 @@ export default function Navbar() {
     </>
   );
 }
+

@@ -29,10 +29,10 @@ export function ProductCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2 }}
-      className="group"
+      className="group h-full"
     >
       <div className="relative bg-white border border-gold/15 rounded-3xl overflow-hidden hover:border-gold/40 transition-all hover:shadow-2xl h-full flex flex-col group-hover:scale-[1.02] duration-300">
-        <div className="h-96 bg-gradient-to-br from-white to-gray-50/50 relative overflow-hidden flex items-center justify-center p-8">
+        <div className="h-80 bg-gradient-to-br from-white to-gray-50/50 relative overflow-hidden flex items-center justify-center p-8 flex-shrink-0">
           <Image
             src={image}
             alt={`${name} - ${flavor}`}
@@ -50,18 +50,19 @@ export function ProductCard({
             {name}
           </h3>
           <p className="text-gold/80 font-medium mb-5">{flavor}</p>
-          <p className="text-muted-foreground mb-8 flex-1 leading-relaxed">
+          <p className="text-muted-foreground mb-8 flex-1 leading-relaxed line-clamp-3">
             {description}
           </p>
           
-          <div className="space-y-4 pt-6 border-t border-gold/10">
-            <ButtonPremium 
-              variant="primary" 
-              className="w-full"
-              onClick={onShopClick}
-            >
-              Shop Now
-            </ButtonPremium>
+          <div className="space-y-4 pt-6 border-t border-gold/10 mt-auto">
+            <a href={`/products/${name.toLowerCase().replace(/\s+/g, '-')}`}>
+              <ButtonPremium 
+                variant="primary" 
+                className="w-full"
+              >
+                Learn More
+              </ButtonPremium>
+            </a>
           </div>
         </div>
       </div>

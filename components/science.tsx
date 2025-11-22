@@ -85,9 +85,9 @@ export default function Science() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className={`flex items-center gap-2 md:gap-3 bg-gradient-to-br ${cert.color} backdrop-blur-sm border border-gold/30 rounded-full px-4 md:px-6 py-2.5 md:py-3 shadow-md hover:shadow-xl transition-all`}
+              className={`flex items-center gap-2 md:gap-3 bg-gradient-to-br ${cert.color} backdrop-blur-sm border border-gold/30 rounded-xl px-4 md:px-6 py-2.5 md:py-3 shadow-md hover:shadow-xl transition-all`}
             >
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg flex items-center justify-center">
                 <cert.icon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
               </div>
               <span className="font-bold text-xs md:text-sm text-foreground whitespace-nowrap">
@@ -212,7 +212,7 @@ export default function Science() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gold hover:bg-gold-dark text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
+                  className="bg-gold hover:bg-gold-dark text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
                 >
                   <FlaskConical className="w-4 h-4 md:w-5 md:h-5" />
                   View Certificates

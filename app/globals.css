@@ -387,3 +387,11 @@
     box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
   }
 }
+
+/* Performance optimizations for smooth animations */
+.hero-slide {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

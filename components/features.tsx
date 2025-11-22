@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion';
 import { SectionHeader, FeatureCard, AnimatedContainer, BackgroundEffects } from './ui';
 import { features } from '@/data';
-import { Sparkles, TrendingUp, Users, Star } from 'lucide-react';
+import { Sparkles, TrendingUp, Users, Star, Beef, Microscope, Truck, BadgeCheck, Zap } from 'lucide-react';
 
 export default function Features() {
   const testimonialStats = [
-    { icon: Star, value: '4.9/5', label: 'Customer Rating' },
-    { icon: Users, value: '50K+', label: 'Happy Customers' },
-    { icon: TrendingUp, value: '98%', label: 'Success Rate' }
+    { icon: Star, value: '4.9/5', label: 'Average Rating' },
+    { icon: Users, value: '50,000+', label: 'Active Users' },
+    { icon: TrendingUp, value: '97%', label: 'See Results' }
   ];
 
   return (
@@ -24,9 +24,9 @@ export default function Features() {
 
       <div className="container-custom">
         <SectionHeader 
-          eyebrow="The Muscle DNA Advantage"
-          title="Excellence in Every Molecule"
-          description="Where uncompromising quality meets revolutionary science to create supplements that don't just meet standards—they redefine them"
+          eyebrow="Why Champions Choose Us"
+          title="Science-Backed Performance"
+          description="Cutting-edge nutrition technology meets pharmaceutical-grade quality. Every formula is engineered to deliver measurable results, backed by research and trusted by elite athletes worldwide."
           className="mb-10 md:mb-12 lg:mb-16"
         />
 
@@ -114,44 +114,44 @@ export default function Features() {
                   </span>
                 </motion.div>
                 <h3 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                  The Complete Performance Solution
+                  Premium Products, Proven Results
                 </h3>
                 <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-3xl mx-auto">
-                  We don't just sell supplements—we deliver a complete transformation system backed by science and proven results
+                  Our vision is simple: create the world's finest supplements that deliver real, measurable results. Every product is crafted with precision, backed by science, and designed to help you achieve your fitness goals faster.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {[
                   {
-                    title: 'Personalized Nutrition',
-                    desc: 'Tailored supplement plans based on your unique genetic profile and fitness goals',
-                    icon: '🧬'
+                    title: 'Premium Whey Protein',
+                    desc: '25g of pure protein per serving with superior taste and mixability. Perfect for muscle building and post-workout recovery',
+                    Icon: Beef
                   },
                   {
-                    title: 'Expert Support',
-                    desc: '24/7 access to certified nutritionists and fitness coaches for guidance',
-                    icon: '👨‍⚕️'
+                    title: 'Mass Gainer Formula',
+                    desc: 'High-calorie blend with 60g carbs and 20g protein. Designed for those who struggle to gain weight and build mass',
+                    Icon: TrendingUp
                   },
                   {
-                    title: 'Progress Tracking',
-                    desc: 'Advanced analytics and insights to monitor your transformation journey',
-                    icon: '📊'
+                    title: 'Pre-Workout Energy',
+                    desc: 'Explosive energy and laser focus for intense training sessions. Enhanced endurance to push beyond your limits',
+                    Icon: Zap
                   },
                   {
-                    title: 'Premium Ingredients',
-                    desc: 'Only the highest quality, clinically-tested ingredients in optimal dosages',
-                    icon: '⚗️'
+                    title: 'Science-Backed Formulas',
+                    desc: 'Every ingredient is research-proven and dosed for maximum effectiveness. No guesswork, just results',
+                    Icon: Microscope
                   },
                   {
-                    title: 'Fast Delivery',
-                    desc: 'Free express shipping worldwide with discreet, eco-friendly packaging',
-                    icon: '🚀'
+                    title: 'Fast Worldwide Delivery',
+                    desc: 'Quick shipping to your location with secure packaging. Track your order every step of the way',
+                    Icon: Truck
                   },
                   {
-                    title: 'Money-Back Guarantee',
-                    desc: '100% satisfaction guaranteed or your money back within 60 days',
-                    icon: '💯'
+                    title: 'Quality Guarantee',
+                    desc: 'Not satisfied? Get a full refund within 60 days. We stand behind every product we make',
+                    Icon: BadgeCheck
                   }
                 ].map((item, idx) => (
                   <motion.div
@@ -163,10 +163,10 @@ export default function Features() {
                     whileHover={{ y: -5 }}
                     className="bg-white/80 backdrop-blur-sm border border-gold/20 rounded-2xl p-6 hover:border-gold/40 hover:shadow-xl transition-all group"
                   >
-                    <div className="text-4xl md:text-5xl mb-4 group-hover:scale-110 transition-transform">
-                      {item.icon}
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gold/20 to-gold/5 rounded-xl flex items-center justify-center mb-4 group-hover:from-gold/30 group-hover:to-gold/10 transition-all">
+                      <item.Icon className="w-6 h-6 md:w-7 md:h-7 text-gold" strokeWidth={2} />
                     </div>
-                    <h4 className="font-bold text-base md:text-lg text-foreground mb-2">
+                    <h4 className="font-sans font-bold text-base md:text-lg text-foreground mb-2 tracking-tight">
                       {item.title}
                     </h4>
                     <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
@@ -190,7 +190,7 @@ export default function Features() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gold hover:bg-gold-dark text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
+                  className="bg-gold hover:bg-gold-dark text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"
                 >
                   Start Your Journey
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -18,7 +18,7 @@ export function ButtonPremium({
   className = '',
   onClick 
 }: ButtonPremiumProps) {
-  const baseClasses = 'btn-premium font-semibold rounded-full transition-all';
+  const baseClasses = 'btn-premium font-semibold rounded-lg transition-all';
   
   const variantClasses = {
     primary: 'bg-gold text-white hover:bg-gold-dark shadow-lg hover:shadow-2xl',
