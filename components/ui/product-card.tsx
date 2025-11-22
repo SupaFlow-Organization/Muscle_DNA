@@ -14,15 +14,21 @@ interface ProductCardProps {
   onShopClick?: () => void;
 }
 
-export function ProductCard({ 
-  name, 
-  flavor, 
-  category, 
-  description, 
-  image, 
+export function ProductCard({
+  name,
+  flavor,
+  category,
+  description,
+  image,
   index = 0,
-  onShopClick 
+  onShopClick
 }: ProductCardProps) {
+  const handleGetMoreDetails = () => {
+    const message = `Hi! I am interested in ${name} - ${flavor}. Please provide more details and pricing.`;
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -32,7 +38,7 @@ export function ProductCard({
       className="group h-full"
     >
       <div className="relative bg-white border border-gold/15 rounded-3xl overflow-hidden hover:border-gold/40 transition-all hover:shadow-2xl h-full flex flex-col group-hover:scale-[1.02] duration-300">
-        <div className="h-80 bg-gradient-to-br from-white to-gray-50/50 relative overflow-hidden flex items-center justify-center p-8 flex-shrink-0">
+        <div className="h-48 sm:h-64 md:h-80 bg-gradient-to-br from-white to-gray-50/50 relative overflow-hidden flex items-center justify-center p-4 sm:p-6 md:p-8 flex-shrink-0">
           <Image
             src={image}
             alt={`${name} - ${flavor}`}
@@ -42,27 +48,28 @@ export function ProductCard({
           />
         </div>
 
-        <div className="p-10 flex-1 flex flex-col">
-          <p className="text-gold text-xs font-semibold tracking-[0.15em] mb-3 uppercase">
+        <div className="p-4 sm:p-6 md:p-10 flex-1 flex flex-col">
+          <p className="text-gold text-xs font-semibold tracking-[0.15em] mb-2 sm:mb-3 uppercase">
             {category}
           </p>
-          <h3 className="font-display font-semibold text-2xl text-foreground mb-2">
+          <h3 className="font-display font-semibold text-lg sm:text-xl md:text-2xl text-foreground mb-1 sm:mb-2">
             {name}
           </h3>
-          <p className="text-gold/80 font-medium mb-5">{flavor}</p>
-          <p className="text-muted-foreground mb-8 flex-1 leading-relaxed line-clamp-3">
+          <p className="text-gold/80 font-medium mb-3 sm:mb-5 text-sm sm:text-base">{flavor}</p>
+          <p className="text-muted-foreground mb-4 sm:mb-8 flex-1 leading-relaxed line-clamp-2 sm:line-clamp-3 text-xs sm:text-sm md:text-base">
             {description}
           </p>
-          
-          <div className="space-y-4 pt-6 border-t border-gold/10 mt-auto">
-            <a href={`/products/${name.toLowerCase().replace(/\s+/g, '-')}`}>
-              <ButtonPremium 
-                variant="primary" 
-                className="w-full"
+
+          <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-gold/10 mt-auto">
+            <div>
+              <ButtonPremium
+                variant="primary"
+                className="w-full text-xs sm:text-sm md:text-base"
+                onClick={handleGetMoreDetails}
               >
-                Learn More
+                Get More Details
               </ButtonPremium>
-            </a>
+            </div>
           </div>
         </div>
       </div>

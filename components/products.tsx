@@ -6,6 +6,9 @@ import { products } from '@/data';
 import { Sparkles, Award, Zap } from 'lucide-react';
 
 export default function Products() {
+  // Duplicate products array for infinite scroll effect
+  const duplicatedProducts = [...products, ...products, ...products];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,6 +29,18 @@ export default function Products() {
     },
   };
 
+  const scrollVariants = {
+    animate: {
+      x: [-800, -1600],
+      transition: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 35,
+        ease: "linear",
+      },
+    },
+  };
+
   const highlights = [
     { icon: Award, text: 'Lab Certified', subtext: '100% Pure' },
     { icon: Zap, text: 'Fast Results', subtext: 'Within 30 Days' },
@@ -41,7 +56,7 @@ export default function Products() {
       </div>
 
       <div className="container-custom">
-        <SectionHeader 
+        <SectionHeader
           eyebrow="Elite Performance Arsenal"
           title="Engineered for Greatness"
           description="Every formula is a masterpiece of nutritional science, designed to transform your body and elevate your performance beyond limits."
@@ -73,24 +88,33 @@ export default function Products() {
           ))}
         </motion.div>
 
-        {/* Products Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch"
-        >
-          {products.map((product, index) => (
-            <motion.div key={index} variants={itemVariants} className="h-full">
-              <ProductCard
-                {...product}
-                index={index}
-                onShopClick={() => console.log(`Shop ${product.name}`)}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Infinite Horizontal Scroll Products */}
+        <div className="relative w-full overflow-hidden">
+          {/* Gradient overlays for smooth fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
+
+          <motion.div
+            variants={scrollVariants as any}
+            animate="animate"
+            className="flex gap-6 md:gap-8 w-max"
+          >
+            {duplicatedProducts.map((product, index) => (
+              <motion.div
+                key={index}
+                className="flex-shrink-0 w-60 sm:w-72 md:w-80 lg:w-96"
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProductCard
+                  {...product}
+                  index={index}
+                  onShopClick={() => console.log(`Shop ${product.name}`)}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
 
       </div>
     </section>

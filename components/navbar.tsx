@@ -14,6 +14,12 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const handleShopNow = () => {
+    const message = 'Hi! I am interested in Muscle DNA products. Please provide more details and pricing.';
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   // Detect scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -134,15 +140,14 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="flex items-center gap-4">
               {/* Shop Now Button */}
-              <Link href="/shop">
-                <motion.button 
-                  className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Shop Now
-                </motion.button>
-              </Link>
+              <motion.button 
+                onClick={handleShopNow}
+                className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Shop Now
+              </motion.button>
 
               {/* Mobile Menu Button */}
               <button
@@ -196,11 +201,14 @@ export default function Navbar() {
                   transition={{ delay: menuItems.length * 0.08, duration: 0.3 }}
                   className="pt-2"
                 >
-                  <Link href="/shop">
-                    <button className="w-full bg-gold hover:bg-gold-dark text-white py-3 px-4 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg">
-                      Shop Now
-                    </button>
-                  </Link>
+                  <motion.button 
+                    onClick={handleShopNow}
+                    className="w-full bg-gold hover:bg-gold-dark text-white py-3 px-4 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Shop Now
+                  </motion.button>
                 </motion.div>
               </div>
             </motion.div>

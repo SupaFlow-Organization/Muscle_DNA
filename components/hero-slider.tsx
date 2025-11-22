@@ -71,8 +71,45 @@ export default function HeroSlider() {
         'Maximum Endurance'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
-    }
+    },
+    {
+      id: 5,
+      productImage: '/images/BCAA_new.png',
+      title: 'CURRENT AMINOS',
+      subtitle: 'White Pineapple',
+      certificationBadge: '/trustified-badge.png',
+      features: [
+        'BCAA + Energy',
+        'Muscle Recovery',
+        'Enhanced Performance'
+      ],
+      backgroundColor: 'from-white via-gold/5 to-gold/10'
+    },
+
+
   ];
+
+  const handleShopNow = () => {
+    const currentProduct = slides[currentSlide];
+    const message = `Hi! I am interested in ${currentProduct.title} - ${currentProduct.subtitle}. Please provide more details and pricing.`;
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
+  const handleMoreProducts = () => {
+    const element = document.querySelector('#products');
+    if (element) {
+      const isMobile = window.innerWidth < 768;
+      const offset = isMobile ? 64 : 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const nextSlide = useCallback(() => {
     setDirection(1);
@@ -137,7 +174,7 @@ export default function HeroSlider() {
             <div className={`h-full bg-gradient-to-br ${slides[currentSlide].backgroundColor}`}>
               <div className="container-custom h-full px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-center min-h-[auto] md:h-full py-6 sm:py-8 md:py-12 lg:py-16">
-                  
+
                   {/* Product Image - Mobile First */}
                   <motion.div
                     initial={{ opacity: 0, y: 15, scale: 0.97 }}
@@ -146,18 +183,18 @@ export default function HeroSlider() {
                     className="relative flex items-center justify-center w-full order-1 lg:order-1 flex-shrink-0"
                     style={{ willChange: 'transform, opacity' }}
                   >
-                    <div className="relative w-full max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-md mx-auto">
+                    <div className="relative w-full max-w-[200px] sm:max-w-[260px] md:max-w-[320px] lg:max-w-[400px] mx-auto h-[280px] sm:h-[360px] md:h-[420px] lg:h-[520px]">
                       {/* Glow effect behind product */}
                       <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-gold/5 to-transparent blur-2xl scale-110"></div>
-                      
+
                       {/* Product image with background */}
-                      <div className="relative z-10 bg-white/50 backdrop-blur-sm rounded-2xl p-3 md:p-4">
+                      <div className="relative z-10 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 h-full flex items-center justify-center">
                         <Image
                           src={slides[currentSlide].productImage}
                           alt={slides[currentSlide].title}
                           width={400}
                           height={500}
-                          className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] md:drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]"
+                          className="w-auto h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] md:drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]"
                           priority
                         />
                       </div>
@@ -165,7 +202,7 @@ export default function HeroSlider() {
                       {/* Floating sparkle elements - hidden on small mobile */}
                       <motion.div
                         className="hidden sm:block absolute top-1/4 right-1/4 w-2 h-2 bg-gold rounded-full"
-                        animate={{ 
+                        animate={{
                           y: [-20, 20, -20],
                           opacity: [0.3, 1, 0.3],
                           scale: [0.8, 1.2, 0.8]
@@ -174,7 +211,7 @@ export default function HeroSlider() {
                       />
                       <motion.div
                         className="hidden sm:block absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-gold/60 rounded-full"
-                        animate={{ 
+                        animate={{
                           x: [-15, 15, -15],
                           opacity: [0.2, 0.8, 0.2],
                           scale: [0.6, 1, 0.6]
@@ -183,7 +220,7 @@ export default function HeroSlider() {
                       />
                       <motion.div
                         className="hidden sm:block absolute bottom-1/3 right-1/3 w-1 h-1 bg-gold/40 rounded-full"
-                        animate={{ 
+                        animate={{
                           y: [15, -15, 15],
                           opacity: [0.2, 0.6, 0.2]
                         }}
@@ -215,7 +252,7 @@ export default function HeroSlider() {
 
                     {/* Title and Subtitle */}
                     <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
-                      <motion.h1 
+                      <motion.h1
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.12, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
@@ -223,7 +260,7 @@ export default function HeroSlider() {
                       >
                         {slides[currentSlide].title}
                       </motion.h1>
-                      <motion.p 
+                      <motion.p
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.15, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
@@ -242,7 +279,7 @@ export default function HeroSlider() {
                     </div>
 
                     {/* Features Grid - Always Horizontal, One Line for All Devices */}
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
@@ -275,26 +312,24 @@ export default function HeroSlider() {
                       transition={{ delay: 0.25, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
                       className="flex flex-col sm:flex-row gap-2 sm:gap-2.5 md:gap-3 justify-center lg:justify-start"
                     >
-                      <Link href={`/products/${slides[currentSlide].title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <motion.button 
-                          className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-150 w-full sm:w-auto"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                        >
-                          Shop Now
-                        </motion.button>
-                      </Link>
-                      <Link href={`/products/${slides[currentSlide].title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <motion.button 
-                          className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-150 w-full sm:w-auto"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                        >
-                          Learn More
-                        </motion.button>
-                      </Link>
+                      <motion.button
+                        onClick={handleShopNow}
+                        className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-150 w-full sm:w-auto"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                      >
+                        Shop Now
+                      </motion.button>
+                      <motion.button
+                        onClick={handleMoreProducts}
+                        className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-150 w-full sm:w-auto"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                      >
+                        More Products
+                      </motion.button>
                     </motion.div>
 
                     {/* Trust Badge */}
@@ -341,11 +376,10 @@ export default function HeroSlider() {
                 setDirection(index > currentSlide ? 1 : -1);
                 setCurrentSlide(index);
               }}
-              className={`h-2 rounded-full transition-all duration-300 ease-out ${
-                index === currentSlide 
-                  ? 'w-10 bg-gold' 
-                  : 'w-2 bg-gold/30 hover:bg-gold/50'
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ease-out ${index === currentSlide
+                ? 'w-10 bg-gold'
+                : 'w-2 bg-gold/30 hover:bg-gold/50'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}

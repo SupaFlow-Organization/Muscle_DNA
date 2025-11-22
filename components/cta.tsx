@@ -11,6 +11,18 @@ export default function CTA() {
     { icon: Award, text: 'Premium Quality', subtext: 'Guaranteed' }
   ];
 
+  const handleShopCollection = () => {
+    const message = 'Hi! I would like to explore your complete product collection. Please share details about all available products.';
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
+  const handleSubscribe = () => {
+    const message = 'Hi! I am interested in the Subscribe & Save 20% program. Please provide details about the subscription plans and how to get started.';
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -119,7 +131,7 @@ export default function CTA() {
                 <ButtonPremium
                   variant="primary"
                   size="large"
-                  onClick={() => console.log('Shop Collection')}
+                  onClick={handleShopCollection}
                 >
                   <span className="flex items-center gap-2">
                     Shop Collection
@@ -136,7 +148,7 @@ export default function CTA() {
                 <ButtonPremium
                   variant="secondary"
                   size="large"
-                  onClick={() => console.log('Subscribe')}
+                  onClick={handleSubscribe}
                 >
                   <span className="flex items-center gap-2">
                     Subscribe & Save 20%
@@ -171,25 +183,31 @@ export default function CTA() {
             {/* Trust indicators */}
             <motion.div
               variants={itemVariants}
-              className="mt-8 md:mt-10 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs md:text-sm text-muted-foreground"
+              className="mt-8 md:mt-10 grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center gap-2 sm:gap-3 md:gap-6 text-xs md:text-sm text-muted-foreground"
             >
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center justify-center gap-2 bg-gold/5 px-3 py-2 md:px-4 md:py-2 rounded-lg border border-gold/20 h-10 sm:h-auto">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Secure Checkout</span>
+                <span className="whitespace-nowrap text-[10px] sm:text-xs">Secure Checkout</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center justify-center gap-2 bg-gold/5 px-3 py-2 md:px-4 md:py-2 rounded-lg border border-gold/20 h-10 sm:h-auto">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>Money-Back Guarantee</span>
+                <span className="whitespace-nowrap text-[10px] sm:text-xs">Money-Back</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center justify-center gap-2 bg-gold/5 px-3 py-2 md:px-4 md:py-2 rounded-lg border border-gold/20 h-10 sm:h-auto">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span>24/7 Support</span>
+                <span className="whitespace-nowrap text-[10px] sm:text-xs">Lab Tested</span>
+              </div>
+              <div className="flex items-center justify-center gap-2 bg-gold/5 px-3 py-2 md:px-4 md:py-2 rounded-lg border border-gold/20 h-10 sm:h-auto">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="whitespace-nowrap text-[10px] sm:text-xs">Pure Formula</span>
               </div>
             </motion.div>
           </div>

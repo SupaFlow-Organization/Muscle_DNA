@@ -12,6 +12,12 @@ export default function Features() {
     { icon: TrendingUp, value: '97%', label: 'See Results' }
   ];
 
+  const handleStartJourney = () => {
+    const message = 'Hi! I am ready to start my fitness journey with Muscle DNA. Please guide me through the products and help me choose the best option for my goals.';
+    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <section id="features" className="section-padding relative overflow-hidden bg-gradient-to-b from-white to-gold/5">
       <BackgroundEffects variant="features" />
@@ -188,6 +194,7 @@ export default function Features() {
                   Ready to experience the Muscle DNA difference?
                 </p>
                 <motion.button
+                  onClick={handleStartJourney}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-gold hover:bg-gold-dark text-white px-8 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2"

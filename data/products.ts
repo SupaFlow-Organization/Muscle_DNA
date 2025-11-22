@@ -25,6 +25,14 @@ export const products: Product[] = [
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
     price: 9499,
   },
+  {
+    name: 'Current Aminos',
+    flavor: 'Unflavored',
+    category: 'BCAA',
+    description: '5g BCAA per serving. Supports muscle growth and recovery. Unflavored for maximum versatility.',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
+    price: 3499,
+  },
 ];
 
 export const flavors: Flavor[] = [
