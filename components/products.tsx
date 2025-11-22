@@ -7,7 +7,8 @@ import { Sparkles, Award, Zap } from 'lucide-react';
 
 export default function Products() {
   // Duplicate products array for infinite scroll effect
-  const duplicatedProducts = [...products, ...products, ...products];
+  // Using 2 copies ensures smooth looping when animation reaches 50%
+  const duplicatedProducts = [...products, ...products];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,17 +30,6 @@ export default function Products() {
     },
   };
 
-  const scrollVariants = {
-    animate: {
-      x: [-800, -1600],
-      transition: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 35,
-        ease: "linear",
-      },
-    },
-  };
 
   const highlights = [
     { icon: Award, text: 'Lab Certified', subtext: '100% Pure' },
@@ -94,26 +84,20 @@ export default function Products() {
           <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
 
-          <motion.div
-            variants={scrollVariants as any}
-            animate="animate"
-            className="flex gap-6 md:gap-8 w-max"
-          >
+          <div className="flex gap-6 md:gap-8 w-max animate-infinite-scroll">
             {duplicatedProducts.map((product, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="flex-shrink-0 w-60 sm:w-72 md:w-80 lg:w-96"
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
+                className="flex-shrink-0 w-60 sm:w-72 md:w-80 lg:w-96 product-card-hover"
               >
                 <ProductCard
                   {...product}
                   index={index}
                   onShopClick={() => console.log(`Shop ${product.name}`)}
                 />
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
       </div>

@@ -30,7 +30,7 @@ export const products: Product[] = [
     flavor: 'Unflavored',
     category: 'BCAA',
     description: '5g BCAA per serving. Supports muscle growth and recovery. Unflavored for maximum versatility.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
+    image: '/images/BCAA_new.png',
     price: 3499,
   },
 ];

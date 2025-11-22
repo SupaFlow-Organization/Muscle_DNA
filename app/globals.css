@@ -168,12 +168,33 @@
     @apply bg-gradient-to-r from-gold/20 to-transparent;
   }
   .btn-premium {
-    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300 ease-out;
-    @apply shadow-lg hover:shadow-2xl;
-    @apply transform hover:-translate-y-0.5;
+    @apply px-8 py-4 rounded-xl font-semibold shadow-lg transition-all duration-300 ease-out;
+  }
+  .btn-premium:hover {
+    @apply shadow-2xl -translate-y-0.5;
   }
   .section-padding {
-    @apply py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 px-4 sm:px-6 lg:px-8;
+    @apply py-12 px-4;
+  }
+  @media (min-width: 640px) {
+    .section-padding {
+      @apply py-16 px-6;
+    }
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      @apply py-20;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      @apply py-24 px-8;
+    }
+  }
+  @media (min-width: 1280px) {
+    .section-padding {
+      @apply py-32;
+    }
   }
   .container-custom {
     @apply max-w-7xl mx-auto w-full;
@@ -394,4 +415,48 @@
   transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+/* Infinite scroll animation - GPU accelerated for smooth mobile performance */
+.animate-infinite-scroll {
+  will-change: transform;
+  animation: infiniteScroll 35s linear infinite;
+  /* GPU acceleration */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Pause animation on hover for better UX */
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth product card hover effect */
+.product-card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.product-card-hover:hover {
+  transform: translateY(-10px);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll {
+    animation: none;
+  }
+  .product-card-hover:hover {
+    transform: none;
+  }
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
