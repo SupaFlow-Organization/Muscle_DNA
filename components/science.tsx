@@ -37,22 +37,14 @@ export default function Science() {
 
   return (
     <section id="science" className="section-padding bg-gradient-to-b from-white via-gold/5 to-white relative overflow-hidden">
-      {/* Animated DNA Helix Background */}
+      {/* Animated DNA Helix Background - CSS animated */}
       <div className="absolute inset-0 -z-10 opacity-5">
-        <motion.div
-          className="absolute top-1/4 left-1/4"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        >
+        <div className="absolute top-1/4 left-1/4 dna-rotate-slow">
           <Dna className="w-64 h-64 text-gold" />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-1/4 right-1/4"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        >
+        </div>
+        <div className="absolute bottom-1/4 right-1/4 dna-rotate-reverse">
           <Dna className="w-48 h-48 text-gold" />
-        </motion.div>
+        </div>
       </div>
 
       {/* Decorative gradient orbs */}
@@ -70,22 +62,14 @@ export default function Science() {
         />
 
         {/* Certifications Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 mb-12 md:mb-16 lg:mb-20"
+        <div
+          className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 mb-12 md:mb-16 lg:mb-20 animate-fade-in-up"
         >
           {certifications.map((cert, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.4 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className={`flex items-center gap-2 md:gap-3 bg-gradient-to-br ${cert.color} backdrop-blur-sm border border-gold/30 rounded-xl px-4 md:px-6 py-2.5 md:py-3 shadow-md hover:shadow-xl transition-all`}
+              className={`flex items-center gap-2 md:gap-3 bg-gradient-to-br ${cert.color} backdrop-blur-sm border border-gold/30 rounded-xl px-4 md:px-6 py-2.5 md:py-3 shadow-md hover:shadow-xl transition-all hover-lift-scale`}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg flex items-center justify-center">
                 <cert.icon className="w-4 h-4 md:w-5 md:h-5 text-gold" />
@@ -93,9 +77,9 @@ export default function Science() {
               <span className="font-bold text-xs md:text-sm text-foreground whitespace-nowrap">
                 {cert.text}
               </span>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Stats Grid */}
         <motion.div

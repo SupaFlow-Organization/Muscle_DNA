@@ -37,22 +37,14 @@ export default function Features() {
         />
 
         {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-20"
+        <div
+          className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 mb-12 md:mb-16 lg:mb-20 animate-fade-in-up"
         >
           {testimonialStats.map((stat, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.4 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="flex items-center gap-3 bg-white/90 backdrop-blur-sm border-2 border-gold/20 rounded-2xl px-5 md:px-7 py-4 md:py-5 shadow-lg hover:shadow-2xl hover:border-gold/40 transition-all"
+              className="flex items-center gap-3 bg-white/90 backdrop-blur-sm border-2 border-gold/20 rounded-2xl px-5 md:px-7 py-4 md:py-5 shadow-lg hover:shadow-2xl hover:border-gold/40 transition-all hover-lift-scale"
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-gold/20 to-gold/5 rounded-xl flex items-center justify-center">
                 <stat.icon className="w-6 h-6 md:w-7 md:h-7 text-gold" />
@@ -65,9 +57,9 @@ export default function Features() {
                   {stat.label}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Features Grid */}
         <AnimatedContainer 

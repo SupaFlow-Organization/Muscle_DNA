@@ -129,21 +129,18 @@ export default function HeroSlider() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 600 : -600,
-      opacity: 0,
-      scale: 0.97
+      x: direction > 0 ? 300 : -300,
+      opacity: 0
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1,
-      scale: 1
+      opacity: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 600 : -600,
-      opacity: 0,
-      scale: 0.97
+      x: direction < 0 ? 300 : -300,
+      opacity: 0
     })
   };
 
@@ -165,9 +162,8 @@ export default function HeroSlider() {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 500, damping: 40, mass: 0.7 },
-              opacity: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] },
-              scale: { duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }
+              x: { type: "tween", duration: 0.3, ease: "easeInOut" },
+              opacity: { duration: 0.3, ease: "easeInOut" }
             }}
             className="relative md:absolute md:inset-0 hero-slide"
           >
@@ -176,12 +172,8 @@ export default function HeroSlider() {
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center justify-center min-h-[auto] md:h-full py-6 sm:py-8 md:py-12 lg:py-16">
 
                   {/* Product Image - Mobile First */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 15, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ delay: 0.05, duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="relative flex items-center justify-center w-full order-1 lg:order-1 flex-shrink-0"
-                    style={{ willChange: 'transform, opacity' }}
+                  <div
+                    className="relative flex items-center justify-center w-full order-1 lg:order-1 flex-shrink-0 animate-fade-in"
                   >
                     <div className="relative w-full max-w-[200px] sm:max-w-[260px] md:max-w-[320px] lg:max-w-[400px] mx-auto h-[280px] sm:h-[360px] md:h-[420px] lg:h-[520px]">
                       {/* Glow effect behind product */}
@@ -199,98 +191,53 @@ export default function HeroSlider() {
                         />
                       </div>
 
-                      {/* Floating sparkle elements - hidden on small mobile */}
-                      <motion.div
-                        className="hidden sm:block absolute top-1/4 right-1/4 w-2 h-2 bg-gold rounded-full"
-                        animate={{
-                          y: [-20, 20, -20],
-                          opacity: [0.3, 1, 0.3],
-                          scale: [0.8, 1.2, 0.8]
-                        }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      />
-                      <motion.div
-                        className="hidden sm:block absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-gold/60 rounded-full"
-                        animate={{
-                          x: [-15, 15, -15],
-                          opacity: [0.2, 0.8, 0.2],
-                          scale: [0.6, 1, 0.6]
-                        }}
-                        transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-                      />
-                      <motion.div
-                        className="hidden sm:block absolute bottom-1/3 right-1/3 w-1 h-1 bg-gold/40 rounded-full"
-                        animate={{
-                          y: [15, -15, 15],
-                          opacity: [0.2, 0.6, 0.2]
-                        }}
-                        transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
-                      />
+                      {/* Floating sparkle elements - CSS animated */}
+                      <div className="hidden sm:block absolute top-1/4 right-1/4 w-2 h-2 bg-gold rounded-full sparkle-float-1" />
+                      <div className="hidden sm:block absolute top-1/3 left-1/4 w-1.5 h-1.5 bg-gold/60 rounded-full sparkle-float-2" />
+                      <div className="hidden sm:block absolute bottom-1/3 right-1/3 w-1 h-1 bg-gold/40 rounded-full sparkle-float-3" />
                     </div>
-                  </motion.div>
+                  </div>
 
                   {/* Content - Mobile First */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.08, duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="space-y-2.5 sm:space-y-3 md:space-y-5 lg:space-y-7 text-center lg:text-left order-2 lg:order-2 w-full"
-                    style={{ willChange: 'transform, opacity' }}
+                  <div
+                    className="space-y-2.5 sm:space-y-3 md:space-y-5 lg:space-y-7 text-center lg:text-left order-2 lg:order-2 w-full animate-fade-in"
                   >
                     {/* Eyebrow text */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                    <div
                       className="inline-flex items-center gap-1.5 md:gap-2 bg-gold/10 px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full"
                     >
                       <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-2 md:h-2 bg-gold rounded-full animate-pulse"></span>
                       <span className="text-gold font-semibold text-[10px] sm:text-xs md:text-sm tracking-wider uppercase">
                         Science-Backed Excellence
                       </span>
-                    </motion.div>
+                     </div>
 
                     {/* Title and Subtitle */}
                     <div className="space-y-1.5 sm:space-y-2 md:space-y-3">
-                      <motion.h1
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.12, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                      <h1
                         className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-[1.15]"
                       >
                         {slides[currentSlide].title}
-                      </motion.h1>
-                      <motion.p
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.15, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                      </h1>
+                      <p
                         className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-dark to-gold font-semibold"
                       >
                         {slides[currentSlide].subtitle}
-                      </motion.p>
-                      <motion.p
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.18, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                      </p>
+                      <p
                         className="text-[11px] sm:text-xs md:text-sm lg:text-base text-muted-foreground max-w-xl mx-auto lg:mx-0 pt-0.5 sm:pt-1"
                       >
                         Engineered for Champions. Scientifically crafted formulations that transform your body's potential into extraordinary performance.
-                      </motion.p>
+                      </p>
                     </div>
 
                     {/* Features Grid - Always Horizontal, One Line for All Devices */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                    <div
                       className="flex flex-row gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 justify-center lg:justify-start flex-nowrap w-full"
                     >
                       {slides[currentSlide].features.map((feature, index) => (
-                        <motion.div
+                        <div
                           key={index}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.22 + index * 0.03, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                           className="bg-white border border-gold/20 p-1.5 sm:p-2 md:p-2.5 lg:p-3 xl:p-4 rounded-lg md:rounded-xl shadow-md hover:shadow-xl hover:border-gold/40 transition-all duration-150 group flex-1 min-w-0"
                         >
                           <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3">
@@ -301,42 +248,30 @@ export default function HeroSlider() {
                             </div>
                             <span className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs xl:text-sm font-semibold text-foreground text-left truncate">{feature}</span>
                           </div>
-                        </motion.div>
+                        </div>
                       ))}
-                    </motion.div>
+                    </div>
 
                     {/* CTA Buttons */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.25, duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                    <div
                       className="flex flex-col sm:flex-row gap-2 sm:gap-2.5 md:gap-3 justify-center lg:justify-start"
                     >
-                      <motion.button
+                      <button
                         onClick={handleShopNow}
-                        className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-150 w-full sm:w-auto"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        className="bg-gold hover:bg-gold-dark text-white px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-150 w-full sm:w-auto hover-scale-button"
                       >
                         Shop Now
-                      </motion.button>
-                      <motion.button
+                      </button>
+                      <button
                         onClick={handleMoreProducts}
-                        className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-150 w-full sm:w-auto"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        className="border-2 border-gold text-gold hover:bg-gold/10 px-6 py-2 sm:px-7 sm:py-2.5 md:px-9 md:py-3.5 rounded-lg font-semibold text-sm md:text-base lg:text-lg transition-all duration-150 w-full sm:w-auto hover-scale-button"
                       >
                         More Products
-                      </motion.button>
-                    </motion.div>
+                      </button>
+                    </div>
 
                     {/* Trust Badge */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.28, duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                    <div
                       className="flex flex-wrap items-center gap-2 sm:gap-2.5 md:gap-4 lg:gap-5 justify-center lg:justify-start pt-2 sm:pt-2.5 md:pt-3 border-t border-gold/10"
                     >
                       <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2">
@@ -358,8 +293,8 @@ export default function HeroSlider() {
                         </svg>
                         <span className="text-[10px] sm:text-xs md:text-sm text-muted-foreground whitespace-nowrap">50K+ Customers</span>
                       </div>
-                    </motion.div>
-                  </motion.div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

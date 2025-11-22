@@ -94,11 +94,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <motion.div 
-                className="relative w-40 h-16 lg:w-52 lg:h-20"
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className="relative w-40 h-16 lg:w-52 lg:h-20 hover-scale">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Muscle-Dna-Logo-Le21ti1qq4Zyzw3GZyu0MQDMo22067.png"
                   alt="Muscle DNA"
@@ -106,18 +102,13 @@ export default function Navbar() {
                   className="object-contain"
                   priority
                 />
-              </motion.div>
+              </div>
             </Link>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-10">
               {menuItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                >
+                <div key={index}>
                   <Link
                     href={item.href + item.hash}
                     onClick={(e) => handleNavClick(e, item.href, item.hash)}
@@ -126,28 +117,21 @@ export default function Navbar() {
                     }`}
                   >
                     {item.label}
-                    <motion.span 
-                      className="absolute -bottom-1 left-0 h-0.5 bg-gold"
-                      initial={{ width: 0 }}
-                      whileHover={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                    ></motion.span>
+                    <span className="absolute -bottom-1 left-0 h-0.5 bg-gold w-0 group-hover:w-full transition-all duration-300"></span>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
 
             {/* Right Side */}
             <div className="flex items-center gap-4">
               {/* Shop Now Button */}
-              <motion.button 
+              <button 
                 onClick={handleShopNow}
-                className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg hover-scale-button"
               >
                 Shop Now
-              </motion.button>
+              </button>
 
               {/* Mobile Menu Button */}
               <button

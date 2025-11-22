@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
@@ -10,14 +9,9 @@ export default function WhatsAppButton() {
   };
   
   return (
-    <motion.button
+    <button
       onClick={handleClick}
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-xl shadow-2xl hover:shadow-3xl transition-all group"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1, type: "spring" }}
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-xl shadow-2xl hover:shadow-3xl transition-all group whatsapp-button-appear hover-scale-button"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
@@ -29,6 +23,6 @@ export default function WhatsAppButton() {
       <span className="hidden md:block absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-foreground text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
         Chat with us on WhatsApp
       </span>
-    </motion.button>
+    </button>
   );
 }

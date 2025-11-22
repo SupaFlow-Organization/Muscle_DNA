@@ -65,27 +65,13 @@ export default function CTA() {
             <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.1),transparent_50%)]"></div>
           </div>
 
-          {/* Floating sparkles */}
-          <motion.div
-            className="absolute top-10 right-10 text-gold/20"
-            animate={{
-              y: [-10, 10, -10],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 6, repeat: Infinity }}
-          >
+          {/* Floating sparkles - CSS animated */}
+          <div className="absolute top-10 right-10 text-gold/20 sparkle-float-rotate-1">
             <Sparkles className="w-8 h-8 md:w-12 md:h-12" />
-          </motion.div>
-          <motion.div
-            className="absolute bottom-10 left-10 text-gold/20"
-            animate={{
-              y: [10, -10, 10],
-              rotate: [360, 180, 0]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          >
+          </div>
+          <div className="absolute bottom-10 left-10 text-gold/20 sparkle-float-rotate-2">
             <Sparkles className="w-6 h-6 md:w-10 md:h-10" />
-          </motion.div>
+          </div>
 
           <div className="relative z-10">
             {/* Eyebrow */}
