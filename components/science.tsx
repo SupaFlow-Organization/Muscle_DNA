@@ -54,7 +54,7 @@ export default function Science() {
       </div>
 
       <div className="container-custom">
-        <SectionHeader 
+        <SectionHeader
           eyebrow="Breakthrough Science"
           title="Where DNA Meets Destiny"
           description="Precision-engineered at the molecular level, our formulations harness cutting-edge genetic research to unlock your body's ultimate potential."
@@ -113,7 +113,7 @@ export default function Science() {
             {/* Floating sparkles */}
             <motion.div
               className="absolute top-6 right-6 text-gold/20"
-              animate={{ 
+              animate={{
                 rotate: [0, 360],
                 scale: [1, 1.3, 1]
               }}
@@ -123,7 +123,7 @@ export default function Science() {
             </motion.div>
             <motion.div
               className="absolute bottom-6 left-6 text-gold/20"
-              animate={{ 
+              animate={{
                 rotate: [360, 0],
                 scale: [1, 1.2, 1]
               }}
@@ -182,7 +182,7 @@ export default function Science() {
                 ))}
               </div>
 
-              {/* Bottom CTA */}
+              {/* Bottom CTA
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ export default function Science() {
                   <FlaskConical className="w-4 h-4 md:w-5 md:h-5" />
                   View Certificates
                 </motion.button>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </motion.div>

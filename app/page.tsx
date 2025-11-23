@@ -2,6 +2,7 @@ import Navbar from '@/components/navbar';
 import HeroSlider from '@/components/hero-slider';
 import Features from '@/components/features';
 import Products from '@/components/products';
+import FlavorSection from '@/components/flavor-section';
 import Science from '@/components/science';
 import CTA from '@/components/cta';
 import Footer from '@/components/footer';
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <HeroSlider />
       <Products />
+      <FlavorSection />
       <Science />
       <Features />
       <CTA />

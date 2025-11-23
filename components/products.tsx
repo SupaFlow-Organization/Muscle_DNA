@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader, ProductCard } from './ui';
 import { products } from '@/data';
@@ -9,6 +10,64 @@ export default function Products() {
   // Duplicate products array for infinite scroll effect
   // Using 2 copies ensures smooth looping when animation reaches 50%
   const duplicatedProducts = [...products, ...products];
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [prevTranslate, setPrevTranslate] = useState(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+  const autoScrollRef = useRef<number | null>(null);
+  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-scroll animation
+  useEffect(() => {
+    if (isDragging || isAutoScrollPaused) return;
+
+    const animate = () => {
+      setCurrentTranslate((prev) => {
+        const newValue = prev - 1; // Scroll speed: 1px per frame
+
+        // Check if we need to loop
+        if (scrollContainerRef.current) {
+          const containerWidth = scrollContainerRef.current.scrollWidth / 2;
+          if (newValue < -containerWidth) {
+            return 0;
+          }
+        }
+
+        return newValue;
+      });
+
+      autoScrollRef.current = requestAnimationFrame(animate);
+    };
+
+    autoScrollRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (autoScrollRef.current) {
+        cancelAnimationFrame(autoScrollRef.current);
+      }
+    };
+  }, [isDragging, isAutoScrollPaused]);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    // Prevent default touch behavior
+    const preventDefaultTouch = (e: TouchEvent) => {
+      if (isDragging) {
+        e.preventDefault();
+      }
+    };
+
+    container.addEventListener('touchmove', preventDefaultTouch, { passive: false });
+
+    return () => {
+      container.removeEventListener('touchmove', preventDefaultTouch);
+    };
+  }, [isDragging]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -79,12 +138,26 @@ export default function Products() {
         </motion.div>
 
         {/* Infinite Horizontal Scroll Products */}
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden touch-pan-y">
           {/* Gradient overlays for smooth fade effect */}
           <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-background via-background/50 to-transparent z-10 pointer-events-none"></div>
 
-          <div className="flex gap-6 md:gap-8 w-max animate-infinite-scroll">
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-6 md:gap-8 w-max cursor-grab active:cursor-grabbing swipeable-carousel"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{
+              transform: `translateX(${currentTranslate}px)`,
+              transition: isDragging ? 'none' : 'transform 0.3s ease-out'
+            }}
+          >
             {duplicatedProducts.map((product, index) => (
               <div
                 key={index}
@@ -92,6 +165,7 @@ export default function Products() {
               >
                 <ProductCard
                   {...product}
+                  price={product.price ?? 0}
                   index={index}
                   onShopClick={() => console.log(`Shop ${product.name}`)}
                 />
@@ -103,4 +177,97 @@ export default function Products() {
       </div>
     </section>
   );
+
+  // Mouse drag handlers
+  function handleMouseDown(e: React.MouseEvent) {
+    setIsDragging(true);
+    setIsAutoScrollPaused(true);
+    setStartX(e.pageX);
+    setPrevTranslate(currentTranslate);
+
+    // Clear any existing pause timeout
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+  }
+
+  function handleMouseMove(e: React.MouseEvent) {
+    if (!isDragging) return;
+    e.preventDefault();
+    const currentX = e.pageX;
+    const diff = currentX - startX;
+    setCurrentTranslate(prevTranslate + diff);
+  }
+
+  function handleMouseUp() {
+    setIsDragging(false);
+    setPrevTranslate(currentTranslate);
+    checkInfiniteLoop();
+
+    // Resume auto-scroll after 3 seconds
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsAutoScrollPaused(false);
+    }, 3000);
+  }
+
+  function handleMouseLeave() {
+    if (isDragging) {
+      setIsDragging(false);
+      setPrevTranslate(currentTranslate);
+      checkInfiniteLoop();
+
+      // Resume auto-scroll after 3 seconds
+      pauseTimeoutRef.current = setTimeout(() => {
+        setIsAutoScrollPaused(false);
+      }, 3000);
+    }
+  }
+
+  // Touch handlers
+  function handleTouchStart(e: React.TouchEvent) {
+    setIsDragging(true);
+    setIsAutoScrollPaused(true);
+    setStartX(e.touches[0].pageX);
+    setPrevTranslate(currentTranslate);
+
+    // Clear any existing pause timeout
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current);
+    }
+  }
+
+  function handleTouchMove(e: React.TouchEvent) {
+    if (!isDragging) return;
+    const currentX = e.touches[0].pageX;
+    const diff = currentX - startX;
+    setCurrentTranslate(prevTranslate + diff);
+  }
+
+  function handleTouchEnd() {
+    setIsDragging(false);
+    setPrevTranslate(currentTranslate);
+    checkInfiniteLoop();
+
+    // Resume auto-scroll after 3 seconds
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsAutoScrollPaused(false);
+    }, 3000);
+  }
+
+  function checkInfiniteLoop() {
+    if (!scrollContainerRef.current) return;
+
+    const containerWidth = scrollContainerRef.current.scrollWidth / 2; // Half because we duplicated
+
+    // If scrolled past the first set, reset to beginning of second set
+    if (currentTranslate < -containerWidth) {
+      setCurrentTranslate(0);
+      setPrevTranslate(0);
+    }
+    // If scrolled before the beginning, jump to end of first set
+    else if (currentTranslate > 0) {
+      setCurrentTranslate(-containerWidth);
+      setPrevTranslate(-containerWidth);
+    }
+  }
 }

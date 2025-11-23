@@ -27,8 +27,7 @@ export default function HeroSlider() {
       subtitle: 'Chocolate Fudge',
       certificationBadge: '/trustified-badge.png',
       features: [
-        '25g Protein Per Serving',
-        '7g BCAA',
+        '25g Protein',
         '50% BCAAs'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
@@ -40,8 +39,8 @@ export default function HeroSlider() {
       subtitle: 'Chocolate Almond Crunch',
       certificationBadge: '/trustified-badge.png',
       features: [
-        '25g Protein Per Serving',
-        '16g Creatine',
+        '24g Protein',
+        '1g Creatine',
         '5g BCAA'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
@@ -53,7 +52,7 @@ export default function HeroSlider() {
       subtitle: 'Kesar Badaam',
       certificationBadge: '/trustified-badge.png',
       features: [
-        '20g Protein Per Serving',
+        '20g Protein',
         '60g Carbs',
         '3g Creatine'
       ],
@@ -67,8 +66,7 @@ export default function HeroSlider() {
       certificationBadge: '/trustified-badge.png',
       features: [
         'Explosive Energy',
-        'Enhanced Focus',
-        'Maximum Endurance'
+        'Enhanced Focus'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
     },
@@ -80,7 +78,6 @@ export default function HeroSlider() {
       certificationBadge: '/trustified-badge.png',
       features: [
         'BCAA + Energy',
-        'Muscle Recovery',
         'Enhanced Performance'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
@@ -210,7 +207,7 @@ export default function HeroSlider() {
                       <span className="text-gold font-semibold text-[10px] sm:text-xs md:text-sm tracking-wider uppercase">
                         Science-Backed Excellence
                       </span>
-                     </div>
+                    </div>
 
                     {/* Title and Subtitle */}
                     <div className="space-y-1.5 sm:space-y-2 md:space-y-3">

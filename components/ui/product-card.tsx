@@ -10,6 +10,7 @@ interface ProductCardProps {
   category: string;
   description: string;
   image: string;
+  price: number;
   index?: number;
   onShopClick?: () => void;
 }
@@ -20,6 +21,7 @@ export function ProductCard({
   category,
   description,
   image,
+  price,
   index = 0,
   onShopClick
 }: ProductCardProps) {
@@ -59,6 +61,14 @@ export function ProductCard({
           <p className="text-muted-foreground mb-4 sm:mb-8 flex-1 leading-relaxed line-clamp-2 sm:line-clamp-3 text-xs sm:text-sm md:text-base">
             {description}
           </p>
+          <div className="flex items-center gap-2">
+            <span className="text-muted-foreground font-medium line-through">
+              ₹{price}
+            </span>
+            <span className="text-gold font-medium">
+              ₹{Math.round(price * 0.8)}
+            </span>
+          </div>
 
           <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-gold/10 mt-auto">
             <div>

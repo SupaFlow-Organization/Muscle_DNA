@@ -425,11 +425,29 @@
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Pause animation on hover for better UX */
 .animate-infinite-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Touch pan optimization */
+.touch-pan-y {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Swipeable carousel - no auto animation, controlled by JS */
+.swipeable-carousel {
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* Smooth product card hover effect */
