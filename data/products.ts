@@ -35,7 +35,7 @@ export const products: Product[] = [
   },
   {
     name: 'Current Aminos',
-    flavor: 'Unflavored',
+    flavor: 'Mix Fruit',
     category: 'BCAA',
     description: '5g BCAA per serving. Supports muscle growth and recovery. Unflavored for maximum versatility.',
     image: '/images/BCAA_new.png',

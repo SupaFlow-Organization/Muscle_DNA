@@ -74,5 +74,40 @@ export const productFlavors = [
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
     color: 'from-pink-100 to-pink-50'
   },
+  // Pre-Workout Flavors - Thor
+  {
+    id: 'thor-tropical',
+    name: 'THOR Pre Workout',
+    category: 'Pre-Workout',
+    flavor: 'Orange',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.38_ef22c492-Simml0VDaeZh6FGHBsKnzf1WUIFAY8.jpg',
+    color: 'from-green-100 to-green-50'
+  },
+  {
+    id: 'thor-fury',
+    name: 'THOR Pre Workout',
+    category: 'Pre-Workout',
+    flavor: 'Green Apple',
+    image: '/images/PRE.jpg',
+    color: 'from-red-100 to-red-50'
+  },
+  {
+    id: 'thor-strike',
+    name: 'THOR Pre Workout',
+    category: 'Pre-Workout',
+    flavor: 'Blueberry',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_ea4eb029-aUsQwJpkzTVfbIF7bOHKwPrYXpzgln.jpg',
+    color: 'from-yellow-100 to-yellow-50'
+  },
 
+  // BCAA Flavors - Current Aminos
+  {
+    id: 'aminos-white-pineapple',
+    name: 'Current Aminos',
+    category: 'BCAA',
+    flavor: 'Mix Fruit',
+    image: '/images/BCAA_new.png',
+    color: 'from-yellow-50 to-amber-50'
+  },
+  
 ];
