@@ -27,7 +27,7 @@ export const features: Feature[] = [
     icon: 'LineChart',
   },
   {
-    title: 'Professional Coaching Access',
+    title: 'Coaching Support',
     description: 'Connect with certified fitness professionals and nutritionists anytime. Get expert advice on supplementation, training programs, and meal planning customized to your specific goals.',
     icon: 'Users',
   },

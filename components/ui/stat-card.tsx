@@ -13,7 +13,7 @@ interface StatCardProps {
 export function StatCard({ number, label, description, index = 0, variant = 'default' }: StatCardProps) {
   if (variant === 'compact') {
     return (
-      <motion.div 
+      <motion.div
         whileHover={{ y: -4 }}
         transition={{ duration: 0.2 }}
       >
@@ -30,7 +30,7 @@ export function StatCard({ number, label, description, index = 0, variant = 'def
       viewport={{ once: true }}
       transition={{ delay: index * 0.15 }}
       whileHover={{ y: -8 }}
-      className="bg-white border border-gold/15 rounded-3xl p-12 text-center hover:border-gold/30 transition-all hover:shadow-xl group"
+      className="bg-white border border-gold/15 rounded-3xl p-12 text-center hover:border-gold/30 transition-all hover:shadow-xl group min-h-72 flex flex-col justify-center"
     >
       <div className="text-6xl font-display font-bold text-gold mb-4 group-hover:scale-110 transition-transform">
         {number}
