@@ -40,13 +40,13 @@ export function ProductCard({
       className="group h-full"
     >
       <div className="relative bg-white border border-gold/15 rounded-3xl overflow-hidden hover:border-gold/40 transition-all hover:shadow-2xl h-full flex flex-col group-hover:scale-[1.02] duration-300">
-        <div className="h-48 sm:h-64 md:h-80 bg-gradient-to-br from-white to-gray-50/50 relative overflow-hidden flex items-center justify-center p-4 sm:p-6 md:p-8 flex-shrink-0">
+        <div className="relative aspect-square bg-gradient-to-br from-white to-gray-50/50 overflow-hidden flex items-center justify-center flex-shrink-0">
           <Image
             src={image}
             alt={`${name} - ${flavor}`}
             width={300}
-            height={360}
-            className="object-contain h-full w-full group-hover:scale-110 transition-transform duration-500"
+            height={300}
+            className="object-contain group-hover:scale-110 transition-transform duration-500 p-3 sm:p-4"
           />
         </div>
 

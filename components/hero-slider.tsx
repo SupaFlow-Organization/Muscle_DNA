@@ -22,7 +22,7 @@ export default function HeroSlider() {
   const slides: Slide[] = [
     {
       id: 1,
-      productImage: '/images/Black_product_box.jpg',
+      productImage: '/images/new/isolate.jpg',
       title: 'BIO WHEY PROTEIN',
       subtitle: 'Chocolate Fudge',
       certificationBadge: '/trustified-badge.png',
@@ -34,7 +34,7 @@ export default function HeroSlider() {
     },
     {
       id: 2,
-      productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.38_ef22c492-Simml0VDaeZh6FGHBsKnzf1WUIFAY8.jpg',
+      productImage: '/images/new/whey.jpg',
       title: 'BIO WHEY PROTEIN',
       subtitle: 'Chocolate Almond Crunch',
       certificationBadge: '/trustified-badge.png',
@@ -47,7 +47,7 @@ export default function HeroSlider() {
     },
     {
       id: 3,
-      productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.40_1ef9de40-y434UxyKKMwKmVS31CqVhsn3tMrMHN.jpg',
+      productImage: '/images/new/gainer.jpg',
       title: 'BIO PROTEIN GAINER',
       subtitle: 'Kesar Badaam',
       certificationBadge: '/trustified-badge.png',
@@ -60,7 +60,7 @@ export default function HeroSlider() {
     },
     {
       id: 4,
-      productImage: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-10-15%20at%2015.14.43_00423002-NJ3Lx9Brcm8b1fjTXq0xszcRLpZtlD.jpg',
+      productImage: '/images/new/launcher.jpg',
       title: 'LAUNCHER PRE-WORKOUT',
       subtitle: 'Pineapple Blast',
       certificationBadge: '/trustified-badge.png',
@@ -72,7 +72,7 @@ export default function HeroSlider() {
     },
     {
       id: 5,
-      productImage: '/images/BCAA_new.png',
+      productImage: '/images/new/current-aminos.jpg',
       title: 'CURRENT AMINOS',
       subtitle: 'White Pineapple',
       certificationBadge: '/trustified-badge.png',
@@ -172,18 +172,18 @@ export default function HeroSlider() {
                   <div
                     className="relative flex items-center justify-center w-full order-1 lg:order-1 flex-shrink-0 animate-fade-in"
                   >
-                    <div className="relative w-full max-w-[200px] sm:max-w-[260px] md:max-w-[320px] lg:max-w-[400px] mx-auto h-[280px] sm:h-[360px] md:h-[420px] lg:h-[520px]">
+                    <div className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[480px] lg:max-w-[600px] mx-auto h-[380px] sm:h-[480px] md:h-[580px] lg:h-[680px]">
                       {/* Glow effect behind product */}
                       <div className="absolute inset-0 bg-gradient-radial from-gold/20 via-gold/5 to-transparent blur-2xl scale-110"></div>
 
                       {/* Product image with background */}
-                      <div className="relative z-10 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 h-full flex items-center justify-center">
+                      <div className="relative z-10 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-8 h-full flex items-center justify-center">
                         <Image
                           src={slides[currentSlide].productImage}
                           alt={slides[currentSlide].title}
-                          width={400}
-                          height={500}
-                          className="w-auto h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] md:drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)]"
+                          width={500}
+                          height={680}
+                          className="w-full h-full object-cover drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] md:drop-shadow-[0_25px_50px_rgba(0,0,0,0.2)] rounded-xl"
                           priority
                         />
                       </div>

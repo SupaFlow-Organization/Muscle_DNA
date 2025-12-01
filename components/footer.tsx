@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Instagram, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 export default function Footer() {
   const handleScrollToProducts = () => {
@@ -123,9 +123,10 @@ export default function Footer() {
                 transition={{ delay: 0 }}
                 className="leading-relaxed"
               >
-                Muscle DNA Headquarters<br />
-                123 Fitness Street<br />
-                Mumbai, Maharashtra 400001<br />
+                Nutrition vision pvt .ltd<br />
+                B-28 /B,Ghatkopar Ind Est ,
+                <br />L.B.S. marg Ghatkopar(w)<br />
+                mumbai -400086<br />
                 India
               </motion.p>
             </div>
@@ -144,11 +145,19 @@ export default function Footer() {
               >
                 <p className="font-medium text-foreground mb-1">Phone</p>
                 <motion.a
-                  href="tel:+918237450891"
+                  href="tel:+919309840897"
                   className="hover:text-gold transition-colors inline-block"
                   whileHover={{ x: 5 }}
                 >
-                  +91 823-745-0891
+                  +91 9309840897
+                </motion.a>
+                <br />
+                <motion.a
+                  href="tel:+917083115629"
+                  className="hover:text-gold transition-colors inline-block"
+                  whileHover={{ x: 5 }}
+                >
+                  +91 7083115629
                 </motion.a>
               </motion.div>
               <motion.div
@@ -160,11 +169,11 @@ export default function Footer() {
               >
                 <p className="font-medium text-foreground mb-1">Email</p>
                 <motion.a
-                  href="mailto:support@muscledna.com"
+                  href="mailto:muscledna.store@gmail.com"
                   className="hover:text-gold transition-colors inline-block"
                   whileHover={{ x: 5 }}
                 >
-                  support@muscledna.com
+                  muscledna.store@gmail.com
                 </motion.a>
               </motion.div>
             </div>
@@ -196,9 +205,8 @@ export default function Footer() {
               transition={{ duration: 0.5 }}
             >
               {[
-                { icon: Instagram, label: 'Instagram', href: 'https://instagram.com' },
-                { icon: Twitter, label: 'Twitter', href: 'https://twitter.com' },
-                { icon: Youtube, label: 'YouTube', href: 'https://youtube.com' }
+                { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/muscle._dna?igsh=MWd2OTViOTZ3eWx1Mg==' },
+                { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/share/17odwx7kW5/' },
               ].map((social, idx) => (
                 <motion.a
                   key={idx}
