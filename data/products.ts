@@ -43,7 +43,7 @@ export const products: Product[] = [
   },
   {
     name: 'THOR Pre Workout',
-    flavor: 'High-Ripphage',
+    flavor: 'Berry Blast',
     category: 'Pre-Workout',
     description: 'Where muscle meets science. Premium pre-workout engineered for explosive energy, enhanced focus, and maximum endurance. 300 grams of pure power.',
     image: '/images/new/thor.jpg',

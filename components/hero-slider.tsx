@@ -24,7 +24,7 @@ export default function HeroSlider() {
       id: 1,
       productImage: '/images/new/isolate.jpg',
       title: 'BIO WHEY PROTEIN',
-      subtitle: 'Chocolate Fudge',
+      subtitle: 'Cafe Mocha',
       certificationBadge: '/trustified-badge.png',
       features: [
         '25g Protein',
@@ -36,7 +36,7 @@ export default function HeroSlider() {
       id: 2,
       productImage: '/images/new/whey.jpg',
       title: 'BIO WHEY PROTEIN',
-      subtitle: 'Chocolate Almond Crunch',
+      subtitle: 'Kesar Malai Kaju',
       certificationBadge: '/trustified-badge.png',
       features: [
         '24g Protein',
@@ -49,7 +49,7 @@ export default function HeroSlider() {
       id: 3,
       productImage: '/images/new/gainer.jpg',
       title: 'BIO PROTEIN GAINER',
-      subtitle: 'Kesar Badaam',
+      subtitle: 'Chocolate Fudge',
       certificationBadge: '/trustified-badge.png',
       features: [
         '20g Protein',
@@ -62,7 +62,7 @@ export default function HeroSlider() {
       id: 4,
       productImage: '/images/new/launcher.jpg',
       title: 'LAUNCHER PRE-WORKOUT',
-      subtitle: 'Pineapple Blast',
+      subtitle: 'Berry Blast',
       certificationBadge: '/trustified-badge.png',
       features: [
         'Explosive Energy',
@@ -74,7 +74,7 @@ export default function HeroSlider() {
       id: 5,
       productImage: '/images/new/current-aminos.jpg',
       title: 'CURRENT AMINOS',
-      subtitle: 'White Pineapple',
+      subtitle: 'Mix Fruit',
       certificationBadge: '/trustified-badge.png',
       features: [
         'BCAA + Energy',
