@@ -4,10 +4,10 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
   const handleClick = () => {
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent('Hi! I am interested in Muscle DNA products.')}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent('Hi! I am interested in Muscle DNA products.')}`;
     window.open(url, '_blank');
   };
-  
+
   return (
     <button
       onClick={handleClick}
@@ -15,10 +15,10 @@ export default function WhatsAppButton() {
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7" />
-      
+
       {/* Pulse animation */}
       <span className="absolute inset-0 rounded-xl bg-green-500 animate-ping opacity-20"></span>
-      
+
       {/* Tooltip - hidden on mobile */}
       <span className="hidden md:block absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-foreground text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
         Chat with us on WhatsApp

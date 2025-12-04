@@ -27,7 +27,7 @@ export function ProductCard({
 }: ProductCardProps) {
   const handleGetMoreDetails = () => {
     const message = `Hi! I am interested in ${name} - ${flavor}. Please provide more details and pricing.`;
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 

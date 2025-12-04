@@ -13,13 +13,13 @@ export default function CTA() {
 
   const handleShopCollection = () => {
     const message = 'Hi! I would like to explore your complete product collection. Please share details about all available products.';
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
   const handleSubscribe = () => {
     const message = 'Hi! I am interested in the Subscribe & Save 20% program. Please provide details about the subscription plans and how to get started.';
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 

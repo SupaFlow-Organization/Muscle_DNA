@@ -89,7 +89,7 @@ export default function HeroSlider() {
   const handleShopNow = () => {
     const currentProduct = slides[currentSlide];
     const message = `Hi! I am interested in ${currentProduct.title} - ${currentProduct.subtitle}. Please provide more details and pricing.`;
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 

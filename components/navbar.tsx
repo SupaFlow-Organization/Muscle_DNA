@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const handleShopNow = () => {
     const message = 'Hi! I am interested in Muscle DNA products. Please provide more details and pricing.';
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
@@ -55,17 +55,17 @@ export default function Navbar() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, hash: string) => {
     e.preventDefault();
-    
+
     // Close mobile menu first
     setIsMenuOpen(false);
-    
+
     // Update active hash state immediately
     setActiveHash(hash);
-    
+
     // Update URL with hash - this will change the URL to show the route
     const newUrl = href + hash;
     router.push(newUrl);
-    
+
     // Small delay to allow menu to close before scrolling
     setTimeout(() => {
       const element = document.querySelector(hash);
@@ -87,9 +87,8 @@ export default function Navbar() {
   return (
     <>
       {/* Main Navbar */}
-      <nav className={`bg-white border-b border-gold/20 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'shadow-xl' : 'shadow-md'
-      }`}>
+      <nav className={`bg-white border-b border-gold/20 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-xl' : 'shadow-md'
+        }`}>
         <div className="container-custom px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
@@ -112,9 +111,8 @@ export default function Navbar() {
                   <Link
                     href={item.href + item.hash}
                     onClick={(e) => handleNavClick(e, item.href, item.hash)}
-                    className={`text-foreground hover:text-gold font-medium text-sm transition-colors relative group ${
-                      activeHash === item.hash ? 'text-gold' : ''
-                    }`}
+                    className={`text-foreground hover:text-gold font-medium text-sm transition-colors relative group ${activeHash === item.hash ? 'text-gold' : ''
+                      }`}
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 h-0.5 bg-gold w-0 group-hover:w-full transition-all duration-300"></span>
@@ -126,7 +124,7 @@ export default function Navbar() {
             {/* Right Side */}
             <div className="flex items-center gap-4">
               {/* Shop Now Button */}
-              <button 
+              <button
                 onClick={handleShopNow}
                 className="hidden lg:block bg-gold hover:bg-gold-dark text-white px-8 py-3 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg hover-scale-button"
               >
@@ -169,15 +167,14 @@ export default function Navbar() {
                     <Link
                       href={item.href + item.hash}
                       onClick={(e) => handleNavClick(e, item.href, item.hash)}
-                      className={`block py-3 px-4 text-foreground hover:text-gold hover:bg-gold/5 font-medium transition-all rounded-lg active:bg-gold/10 ${
-                        activeHash === item.hash ? 'text-gold bg-gold/10' : ''
-                      }`}
+                      className={`block py-3 px-4 text-foreground hover:text-gold hover:bg-gold/5 font-medium transition-all rounded-lg active:bg-gold/10 ${activeHash === item.hash ? 'text-gold bg-gold/10' : ''
+                        }`}
                     >
                       {item.label}
                     </Link>
                   </motion.div>
                 ))}
-                
+
                 {/* Shop Now Button - Mobile Only */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -185,7 +182,7 @@ export default function Navbar() {
                   transition={{ delay: menuItems.length * 0.08, duration: 0.3 }}
                   className="pt-2"
                 >
-                  <motion.button 
+                  <motion.button
                     onClick={handleShopNow}
                     className="w-full bg-gold hover:bg-gold-dark text-white py-3 px-4 rounded-lg font-semibold text-sm transition-all shadow-md hover:shadow-lg"
                     whileHover={{ scale: 1.02 }}

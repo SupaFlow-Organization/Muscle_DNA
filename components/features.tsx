@@ -14,7 +14,7 @@ export default function Features() {
 
   const handleStartJourney = () => {
     const message = 'Hi! I am ready to start my fitness journey with Muscle DNA. Please guide me through the products and help me choose the best option for my goals.';
-    const url = `https://wa.me/+918237450891?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/+919309840897?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
@@ -29,7 +29,7 @@ export default function Features() {
       </div>
 
       <div className="container-custom">
-        <SectionHeader 
+        <SectionHeader
           eyebrow="Why Champions Choose Us"
           title="Science-Backed Performance"
           description="Cutting-edge nutrition technology meets pharmaceutical-grade quality. Every formula is engineered to deliver measurable results, backed by research and trusted by elite athletes worldwide."
@@ -62,7 +62,7 @@ export default function Features() {
         </div>
 
         {/* Features Grid */}
-        <AnimatedContainer 
+        <AnimatedContainer
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           staggerChildren={0.1}
         >
@@ -89,7 +89,7 @@ export default function Features() {
             {/* Floating sparkles */}
             <motion.div
               className="absolute top-8 right-8 text-gold/20"
-              animate={{ 
+              animate={{
                 rotate: [0, 360],
                 scale: [1, 1.2, 1]
               }}
