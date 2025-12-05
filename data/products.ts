@@ -3,10 +3,10 @@ import { Product, Flavor } from '@/types';
 export const products: Product[] = [
   {
     name: 'Bio Whey Protein',
-    flavor: 'Chocolate Fudge',
+    flavor: 'Cafe Mocha',
     category: 'Premium Whey',
-    description: '25g protein per serving with 7g Orifice and 50% BCAA. Post-workout recovery and rapid recovery for lean strength and muscles. 55% protein purity.',
-    image: '/images/new/isolate.jpg',
+    description: '27g protein per serving and 5.2g BCAA. Post-workout recovery and rapid recovery for lean strength and muscles. 55% protein purity.',
+    image: '/images/new/isolate-new.jpg',
     price: 8499,
   },
   {

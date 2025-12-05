@@ -22,13 +22,13 @@ export default function HeroSlider() {
   const slides: Slide[] = [
     {
       id: 1,
-      productImage: '/images/new/isolate.jpg',
+      productImage: '/images/new/isolate-new.jpg',
       title: 'BIO WHEY PROTEIN',
       subtitle: 'Cafe Mocha',
       certificationBadge: '/trustified-badge.png',
       features: [
-        '25g Protein',
-        '50% BCAAs'
+        '27g Protein',
+        '5.2g BCAAs'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10'
     },
