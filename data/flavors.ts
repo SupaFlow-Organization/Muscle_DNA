@@ -109,5 +109,15 @@ export const productFlavors = [
     image: '/images/BCAA_new.png',
     color: 'from-yellow-50 to-amber-50'
   },
+
+  // Tablets
+  {
+    id: 'l-arginine-unflavored',
+    name: 'L-Arginine L-Citrulline',
+    category: 'Tablets',
+    flavor: 'L-Arginine',
+    image: '/images/new/file_00000000dbf47207a2b10c7ee3d64baa.png',
+    color: 'from-amber-50 to-yellow-50'
+  },
   
 ];

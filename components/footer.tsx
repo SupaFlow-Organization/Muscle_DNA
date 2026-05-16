@@ -90,7 +90,7 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h4 className="font-display font-semibold mb-4 md:mb-6 text-base md:text-lg text-foreground">Products</h4>
             <ul className="space-y-2 md:space-y-3 text-sm md:text-base text-muted-foreground">
-              {['Whey Protein', 'Mass Gainer', 'Pre-Workout', 'BCAA'].map((item, idx) => (
+              {['Whey Protein', 'Mass Gainer', 'Pre-Workout', 'BCAA', 'Tablets'].map((item, idx) => (
                 <motion.li
                   key={idx}
                   variants={linkVariants}

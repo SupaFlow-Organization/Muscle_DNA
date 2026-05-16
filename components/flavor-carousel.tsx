@@ -26,7 +26,7 @@ export function FlavorCarousel({ items }: FlavorGridProps) {
     }, {} as Record<string, FlavorItem[]>);
 
     // Define category order
-    const categoryOrder = ['Whey Protein', 'Mass Gainer', 'Pre-Workout', 'BCAA'];
+    const categoryOrder = ['Whey Protein', 'Mass Gainer', 'Pre-Workout', 'BCAA', 'Tablets'];
     const sortedCategories = categoryOrder.filter(cat => groupedByCategory[cat]);
 
     const containerVariants = {
