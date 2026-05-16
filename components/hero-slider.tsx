@@ -47,7 +47,7 @@ export default function HeroSlider() {
         '5g BCAA'
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10',
-      weight: '1.31 KG'
+      weight: '1.81 KG'
     },
     {
       id: 3,
@@ -117,7 +117,7 @@ export default function HeroSlider() {
       ],
       backgroundColor: 'from-white via-gold/5 to-gold/10',
       isNewLaunch: true,
-      weight: '1.81 KG'
+      weight: '1 KG'
     },
     {
       id: 8,
@@ -133,6 +133,21 @@ export default function HeroSlider() {
       backgroundColor: 'from-white via-gold/5 to-gold/10',
       isNewLaunch: true,
       weight: '2 KG'
+    },
+    {
+      id: 9,
+      productImage: '/images/new/file_00000000dbf47207a2b10c7ee3d64baa.png',
+      title: 'L-ARGININE L-CITRULLINE',
+      subtitle: '1250MG',
+      certificationBadge: '/trustified-badge.png',
+      features: [
+        '1000mg L-Arginine',
+        '250mg L-Citrulline',
+        'Nitric Oxide Support'
+      ],
+      backgroundColor: 'from-white via-gold/5 to-gold/10',
+      isNewLaunch: true,
+      weight: '60 Tablets'
     },
   ];
 

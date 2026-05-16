@@ -17,7 +17,7 @@ export const products: Product[] = [
     description: 'Unleash 25g of pure muscle-building power per serving. Fortified with 16g creatine and 5g BCAA for explosive gains, lightning-fast recovery, and unmatched strength.',
     image: '/images/new/whey.jpg',
     price: 8499,
-    weight: '1.31 KG',
+    weight: '1.81 KG',
   },
   {
     name: 'Bio Protein Gainer',
@@ -61,7 +61,7 @@ export const products: Product[] = [
     category: 'Premium Whey',
     description: '25g protein per serving with 3g creatine and 1.3g leucine. Engineered for muscle growth & recovery, strength & performance, and weight management. 907g (2 LB).',
     image: '/images/new/file_00000000d670720b9f9b1414ca76b225.png',
-    price: 6999,
+    price: 8000,
     weight: '2 KG',
   },
   {
@@ -70,8 +70,8 @@ export const products: Product[] = [
     category: 'Whey Isolate',
     description: '27g protein per serving with 5.2g BCAAs and 0g added sugar. Enhanced performance, rapid recovery, and gain strength & muscles. 27+ grams of pure protein.',
     image: '/images/new/IMG-20260404-WA0008.jpg',
-    price: 9499,
-    weight: '1.81 KG',
+    price: 4800,
+    weight: '1 KG',
   },
   {
     name: 'Hulk Gainer',
@@ -79,7 +79,7 @@ export const products: Product[] = [
     category: 'Mass Gainer',
     description: '20g protein, 60g carbs, and 3g creatine per serving. Enhanced performance, rapid recovery, and gain strength & muscles. Net weight 2KG.',
     image: '/images/new/IMG-20260414-WA0043.jpg',
-    price: 4999,
+    price: 5000,
     weight: '2 KG',
   },
   {
@@ -88,8 +88,17 @@ export const products: Product[] = [
     category: 'Premium Whey',
     description: '25g protein per serving with 3g creatine and 1.3g leucine. Muscle growth & recovery, strength & performance, and weight management. 907g (2 LB).',
     image: '/images/new/IMG-20260516-WA0003.jpg',
-    price: 6999,
+    price: 4000,
     weight: '1 KG',
+  },
+  {
+    name: 'L-Arginine L-Citrulline',
+    flavor: 'Unflavored',
+    category: 'Amino Acid',
+    description: '1000mg L-Arginine and 250mg L-Citrulline per tablet. Nitric oxide support for peak performance, cardiovascular health, athletic performance, and immune support. 60 Tablets.',
+    image: '/images/new/file_00000000dbf47207a2b10c7ee3d64baa.png',
+    price: 2400,
+    weight: '60 Tablets',
   },
 ];
 
