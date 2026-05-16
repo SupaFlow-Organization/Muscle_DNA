@@ -8,6 +8,7 @@ export const products: Product[] = [
     description: '27g protein per serving and 5.2g BCAA. Post-workout recovery and rapid recovery for lean strength and muscles. 55% protein purity.',
     image: '/images/new/isolate-new.jpg',
     price: 8499,
+    weight: '1.81 KG',
   },
   {
     name: 'Bio Whey Protein',
@@ -16,6 +17,7 @@ export const products: Product[] = [
     description: 'Unleash 25g of pure muscle-building power per serving. Fortified with 16g creatine and 5g BCAA for explosive gains, lightning-fast recovery, and unmatched strength.',
     image: '/images/new/whey.jpg',
     price: 8499,
+    weight: '1.31 KG',
   },
   {
     name: 'Bio Protein Gainer',
@@ -24,6 +26,7 @@ export const products: Product[] = [
     description: 'The ultimate mass-building weapon. 20g premium protein and 60g complex carbs with 3g creatine fuel unstoppable muscle growth and raw power.',
     image: '/images/new/gainer.jpg',
     price: 4499,
+    weight: '1.81 KG',
   },
   {
     name: 'Launcher Pre-Workout',
@@ -32,6 +35,7 @@ export const products: Product[] = [
     description: 'Ignite your workout with explosive energy that lasts. Scientifically engineered to push your limits, shatter plateaus, and dominate every rep.',
     image: '/images/new/launcher.jpg',
     price: 2900,
+    weight: '300 GM',
   },
   {
     name: 'Current Aminos',
@@ -40,6 +44,7 @@ export const products: Product[] = [
     description: '5g BCAA per serving. Supports muscle growth and recovery. Unflavored for maximum versatility.',
     image: '/images/new/current-aminos.jpg',
     price: 2700,
+    weight: '300 GM',
   },
   {
     name: 'THOR Pre Workout',
@@ -48,6 +53,43 @@ export const products: Product[] = [
     description: 'Where muscle meets science. Premium pre-workout engineered for explosive energy, enhanced focus, and maximum endurance. 300 grams of pure power.',
     image: '/images/new/thor.jpg',
     price: 2900,
+    weight: '300 GM',
+  },
+  {
+    name: 'Nitrobolic Whey',
+    flavor: 'Chocolate',
+    category: 'Premium Whey',
+    description: '25g protein per serving with 3g creatine and 1.3g leucine. Engineered for muscle growth & recovery, strength & performance, and weight management. 907g (2 LB).',
+    image: '/images/new/file_00000000d670720b9f9b1414ca76b225.png',
+    price: 6999,
+    weight: '2 KG',
+  },
+  {
+    name: 'Bio Isolate',
+    flavor: 'Café Mocha',
+    category: 'Whey Isolate',
+    description: '27g protein per serving with 5.2g BCAAs and 0g added sugar. Enhanced performance, rapid recovery, and gain strength & muscles. 27+ grams of pure protein.',
+    image: '/images/new/IMG-20260404-WA0008.jpg',
+    price: 9499,
+    weight: '1.81 KG',
+  },
+  {
+    name: 'Hulk Gainer',
+    flavor: 'Chocolate Fudge',
+    category: 'Mass Gainer',
+    description: '20g protein, 60g carbs, and 3g creatine per serving. Enhanced performance, rapid recovery, and gain strength & muscles. Net weight 2KG.',
+    image: '/images/new/IMG-20260414-WA0043.jpg',
+    price: 4999,
+    weight: '2 KG',
+  },
+  {
+    name: 'Nitrobolic Whey',
+    flavor: 'Cafe Mocha',
+    category: 'Premium Whey',
+    description: '25g protein per serving with 3g creatine and 1.3g leucine. Muscle growth & recovery, strength & performance, and weight management. 907g (2 LB).',
+    image: '/images/new/IMG-20260516-WA0003.jpg',
+    price: 6999,
+    weight: '1 KG',
   },
 ];
 

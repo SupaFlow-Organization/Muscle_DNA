@@ -8,6 +8,7 @@ export interface Product {
   image: string;
   price?: number;
   features?: string[];
+  weight?: string;
 }
 
 export interface Feature {

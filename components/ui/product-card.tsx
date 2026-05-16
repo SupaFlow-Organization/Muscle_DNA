@@ -11,6 +11,7 @@ interface ProductCardProps {
   description: string;
   image: string;
   price: number;
+  weight?: string;
   index?: number;
   onShopClick?: () => void;
 }
@@ -22,6 +23,7 @@ export function ProductCard({
   description,
   image,
   price,
+  weight,
   index = 0,
   onShopClick
 }: ProductCardProps) {
@@ -48,6 +50,17 @@ export function ProductCard({
             height={300}
             className="object-contain group-hover:scale-110 transition-transform duration-500 p-3 sm:p-4"
           />
+          {/* Weight Badge */}
+          {weight && (
+            <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
+              <div className="bg-foreground/85 backdrop-blur-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md shadow-md flex items-center gap-1">
+                <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                </svg>
+                <span className="text-white font-bold text-[9px] sm:text-[10px] tracking-wide">{weight}</span>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="p-4 sm:p-6 md:p-10 flex-1 flex flex-col">
